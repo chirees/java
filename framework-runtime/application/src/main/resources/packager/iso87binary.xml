@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE isopackager SYSTEM "genericpackager.dtd">
+
+<!-- ISO 8583:1987 (BINARY) field descriptions for GenericPackager -->
+
+<isopackager>
+	<isofield id="0" length="4" name="消息类型" pad="true" class="org.jpos.iso.IFB_NUMERIC" />
+
+	<isofield id="1" length="8" name="位元表" class="org.jpos.iso.IFB_BITMAP" />
+
+	<isofield id="2" length="19" name="主账号" pad="false" class="org.jpos.iso.IFB_LLNUM" />
+
+	<isofield id="3" length="6" name="交易处理码" pad="true" class="org.jpos.iso.IFB_NUMERIC" />
+
+	<isofield id="4" length="12" name="交易金额" pad="true" class="org.jpos.iso.IFB_NUMERIC" />
+
+	<isofield id="11" length="6" name="受卡方系统跟踪号[POS终端交易流水]" pad="true" class="org.jpos.iso.IFB_NUMERIC" />
+
+	<isofield id="12" length="6" name="受卡方所在地时间" pad="true" class="org.jpos.iso.IFB_NUMERIC" />
+
+	<isofield id="13" length="4" name="受卡方所在地日期" pad="true" class="org.jpos.iso.IFB_NUMERIC" />
+
+	<isofield id="14" length="4" name="卡有效期" pad="true" class="org.jpos.iso.IFB_NUMERIC" />
+
+	<isofield id="15" length="4" name="清算日期" pad="true" class="org.jpos.iso.IFB_NUMERIC" />
+
+	<isofield id="22" length="3" name="服务点输入方式码" pad="false" class="org.jpos.iso.IFB_NUMERIC" />
+
+	<isofield id="23" length="4" name="卡片序列号" pad="true" class="org.jpos.iso.IFB_NUMERIC" />
+
+	<isofield id="25" length="2" name="服务条件码" pad="false" class="org.jpos.iso.IFB_NUMERIC" />
+
+	<isofield id="26" length="2" name="服务点PIN获取码" pad="false" class="org.jpos.iso.IFB_NUMERIC" />
+	
+	<isofield id="31" length="10" name="接入机构标识码" pad="false" class="org.jpos.iso.IF_CHAR" />
+
+	<isofield id="32" length="11" name="受理方标示符" pad="false" class="org.jpos.iso.IFB_LLNUM" />
+
+	<isofield id="35" length="48" name="2磁道数据" pad="false" class="org.jpos.iso.IFB_LLNUM" />
+
+	<isofield id="36" length="112" name="3磁道数据" pad="false" class="org.jpos.iso.IFB_LLLNUM" />
+
+	<isofield id="37" length="12" name="检索参考号" class="org.jpos.iso.IF_CHAR" />
+
+	<isofield id="38" length="6" name="授权码" class="org.jpos.iso.IF_CHAR" />
+
+	<isofield id="39" length="2" name="应答码" class="org.jpos.iso.IF_CHAR" />
+
+	<isofield id="41" length="8" name="终端号" class="org.jpos.iso.IF_CHAR" />
+
+	<isofield id="42" length="15" name="商户号" class="org.jpos.iso.IF_CHAR" />
+
+	<isofield id="44" length="25" name="附加响应数据" class="org.jpos.iso.IFB_LLCHAR" />
+
+	<isofield id="48" length="999" name="附加数据-私有" class="org.jpos.iso.IFB_LLLNUM" />
+
+	<isofield id="49" length="3" name="交易货币代码" class="org.jpos.iso.IF_CHAR" />
+
+	<isofield id="52" length="8" name="个人标识数据" class="org.jpos.iso.IFB_BINARY" />
+
+	<isofield id="53" length="8" name="安全控制信息" pad="true" class="org.jpos.iso.IFB_BINARY" />
+
+	<isofield id="54" length="999" name="附加金额" class="org.jpos.iso.IFB_LLLCHAR" />
+
+	<isofield id="55" length="255" name="IC卡信息" class="org.jpos.iso.IFB_LLLBINARY" />
+	
+	<isofield id="56" length="40" name="应答信息" class="org.jpos.iso.IFB_LLLCHAR" />
+
+
+	<isofieldpackager id="60" length="999" name="自定义域" class="org.jpos.iso.IFB_LLLNUM" emitBitmap="false" packager="org.jpos.iso.packager.GenericSubFieldPackager">
+		<isofield id="1" length="2" name="交易类型码" pad="true" class="org.jpos.iso.IF_CHAR" />
+		<isofield id="2" length="6" name="批次号" pad="true" class="org.jpos.iso.IF_CHAR" />
+		<isofield id="3" length="3" name="网络管理码" pad="true" class="org.jpos.iso.IF_CHAR" />
+		<isofield id="4" length="1" name="终端读取能力" pad="true" class="org.jpos.iso.IF_CHAR" />
+		<isofield id="5" length="1" name="IC 卡条件代码" pad="true" class="org.jpos.iso.IF_CHAR" />
+		<isofield id="6" length="1" name="标志" pad="true" class="org.jpos.iso.IF_CHAR" />
+	</isofieldpackager>
+
+	<isofieldpackager id="61" length="999" name="原始信息域" class="org.jpos.iso.IFB_LLLNUM" emitBitmap="false" packager="org.jpos.iso.packager.GenericSubFieldPackager">
+		<isofield id="1" length="6" name="原批号" pad="true" class="org.jpos.iso.IF_CHAR" />
+		<isofield id="2" length="6" name="原POS流水号" pad="true" class="org.jpos.iso.IF_CHAR" />
+		<isofield id="3" length="4" name="原交易日期" pad="true" class="org.jpos.iso.IF_CHAR" />
+	</isofieldpackager>
+
+	<isofield id="62" length="999" name="终端信息/终端密钥" class="org.jpos.iso.IFB_LLLBINARY" />
+	<isofieldpackager id="63" length="999" name="自定义域" class="org.jpos.iso.IFB_LLLCHAR" emitBitmap="false" packager="org.jpos.iso.packager.GenericSubFieldPackager">
+		<isofield id="1" length="3" name="国际信用卡公司代码" pad="true" class="org.jpos.iso.IF_CHAR" />
+		<isofield id="2" length="120" name="自定义域2" pad="true" class="org.jpos.iso.IFA_LLLCHAR" />
+	</isofieldpackager>
+
+	<isofield id="64" length="8" name="MAC" class="org.jpos.iso.IFB_BINARY" />
+</isopackager>

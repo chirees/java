@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:sofa="http://img.alipay.net/dtd/schema/service"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://img.alipay.net/dtd/schema/service 
+         http://img.alipay.net/dtd/schema/service/sofa-service.xsd
+         http://www.springframework.org/schema/context 
+         http://www.springframework.org/schema/context/spring-context-2.5.xsd
+         http://www.springframework.org/schema/webflow-config 
+         http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd
+         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+	default-autowire="byName">
+	
+	<!-- <bean name="PropertyPlaceholderConfigurer"  
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+        <property name="properties" ref="mainConfiguration" />  
+    </bean>  --> 
+    
+    <bean id="mainConfiguration" class="com.framework.runtime.application.config.ConfigurationBean" >
+    	<property name="configurationPath" >
+    		<value>config/main-config.xml</value>
+    	</property>
+    </bean>
+    
+    <bean id="demo" class="com.framework.runtime.application.config.PropertyBean" >
+    	<property name="env" >
+    		<value>${env}</value>
+    	</property>
+    	<property name="key1" >
+    		<value>${key2}</value>
+    	</property>
+    </bean>
+    <aop:aspectj-autoproxy/>
+    <bean id="testWebService" class="com.framework.runtime.application.TestWebService" >
+    </bean>
+    
+    <bean id="webInterceptor" class="com.framework.runtime.application.handler.WebServiceInterceptor" >
+    </bean>
+    
+    
+</beans>

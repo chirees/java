@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<flow code="010001" name="消费"  >
+		<status name="初始" code="init1" started="true">
+			<trigger code="pay" event="pay" ></trigger>
+			<event name="确认支付" to="payed" code="pay"/>
+		</status>
+
+		<status name="已支付" code="payed">
+			<event name="退款"  code="return">
+				<when value="success" to="returned"/>
+				<when value="fail" to="payed"/>
+			</event>
+		</status>
+
+		<status name="已退款" code="returned" />
+	</flow>
+
+	<flow code="020001" name="消费"  >
+		<status name="初始" code="init">
+			<event name="确认支付" to="payed" code="pay"/>
+		</status>
+
+		<status name="已支付" code="payed">
+			<event name="退款" to="returned" code="return"/>
+		</status>
+
+		<status name="已退款" code="returned" />
+	</flow>
+</config>

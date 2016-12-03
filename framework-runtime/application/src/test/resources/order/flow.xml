@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<flow>
+	<process code="010001" name="消费" group="001">
+		<status name="初始" code="init">
+			<event name="确认支付" toStatus="payed">
+		</status>
+
+		<status name="已支付" code="payed">
+			<event name="退款" toStatus="returned">
+		</status>
+
+		<status name="已退款" code="returned" />
+	</process>
+
+	<process code="020001" name="消费" group="002">
+		<status name="初始" code="init">
+			<event name="确认支付" toStatus="payed">
+		</status>
+
+		<status name="已支付" code="payed">
+			<event name="退款" toStatus="returned">
+		</status>
+
+		<status name="已退款" code="returned" />
+	</process>
+</flow>
